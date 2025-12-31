@@ -1,97 +1,75 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Daily Burn Tracker Mobile
 
-# Getting Started
+A premium, high-performance fitness and habit tracking application built with React Native.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## ✨ Features
+- **Daily Burn Dashboard**: Dynamic workout suggestions and circular progress tracking.
+- **Workout Player**: 40s Work / 20s Rest interval timer with exercise descriptions.
+- **Plate Method Journal**: Quick logging for nutritional habits and hydration.
+- **Frequency Tracker**: Analytics for consistency with "Frequency vs Minutes" visualization.
+- **Progress Tracking**: Body measurement logging (Weight, Waist, Thigh) with change indicators.
 
-## Step 1: Start Metro
+## 🚀 Getting Started
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+### 📋 Prerequisites
+- Node.js & npm
+- React Native Environment Setup (Android Studio/SDK)
+- Java 17 (set in `JAVA_HOME`)
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+### 🛠️ Installation
+1. Clone the repository
+2. Install dependencies:
+   ```powershell
+   npm install
+   ```
 
-```sh
-# Using npm
-npm start
+### 📱 Running Locally
+1. Start Metro Bundler:
+   ```powershell
+   npm start
+   ```
+2. Run on Android:
+   ```powershell
+   npm run android
+   ```
 
-# OR using Yarn
-yarn start
+## 🏗️ Building the APK
+
+### 🔑 Generate Upload Key (First Time)
+```powershell
+keytool -genkeypair -v -storetype PKCS12 -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
 ```
 
-## Step 2: Build and run your app
-
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+### 📦 Assemble APK
+```powershell
+cd android
+./gradlew clean
+./gradlew assembleDebug  # For testing
+./gradlew assembleRelease # For final build
 ```
 
-### iOS
+The APK will be located at:
+`android/app/build/outputs/apk/debug/app-debug.apk`
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+## 🎨 Icon Generation
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+To generate/update the app icons from a master image:
 
-```sh
-bundle install
-```
+1. **Install the generator dependency** (if not already present):
+   ```powershell
+   npm install --save-dev "@bam.tech/react-native-make"
+   ```
 
-Then, and every time you update your native dependencies, run:
+2. **Run the generator**:
+   Ensure your master image is located at `assets/app_icon.png` and run:
+   ```powershell
+   npx react-native set-icon --path assets/app_icon.png --platform android
+   ```
+   *Note: If you encounter "Input file is missing", try using the full path or ensure you are in the project root.*
 
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## 🛠️ Tech Stack
+- **Framework**: React Native
+- **UI Library**: React Native Paper (MD3)
+- **Icons**: FontAwesome 6 (Solid)
+- **Animation**: React Native Animated API
+- **Styling**: Vanilla StyleSheet with Midnight Blue/Black theme
